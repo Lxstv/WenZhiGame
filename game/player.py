@@ -1,10 +1,11 @@
+#导入库
 import game.map as map
 import keyboard
 import time
-
+#定义公共变量
 global player_x
 global player_y
-
+#定义初始化玩家函数
 def init_player():
     global player_x
     global player_y
@@ -12,8 +13,9 @@ def init_player():
     player_y = map.map_wide // 2
     print(player_x,player_y)
     map.map[player_y][player_x] = '我'
-
+#定义碰撞检测函数
 def Collision_Detection(xy,fu):
+    #导入公共变量
     global player_x
     global player_y
     if xy == 'x':
@@ -38,8 +40,9 @@ def Collision_Detection(xy,fu):
                 return False
             else:
                 return True
-
+#定义玩家控制函数
 def player_move():
+    #导入公共变量
     global player_x
     global player_y
     map.map[player_y][player_x] = '  '
@@ -56,4 +59,3 @@ def player_move():
     time.sleep(0.1)
     map.map[player_y][player_x] = '我'
     map.display_map()
-    print(player_x,',',player_y)
